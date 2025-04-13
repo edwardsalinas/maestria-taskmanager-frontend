@@ -68,7 +68,10 @@ export const TaskForm = ({ taskToEdit, onClose }) => {
           <select
             value={taskData.status}
             onChange={(e) => setTaskData({ ...taskData, status: e.target.value })}
-            className="w-full p-2 border rounded"
+            className={`w-full p-2 border rounded ${
+              !taskToEdit ? "cursor-not-allowed" : ""
+            }`} 
+            disabled={!taskToEdit} 
           >
             <option value="pendiente">Pendiente</option>
             <option value="en progreso">En Progreso</option>
@@ -93,7 +96,7 @@ export const TaskForm = ({ taskToEdit, onClose }) => {
             onClick={onClose}
             className="px-4 py-2 text-gray-600 hover:text-gray-800"
           >
-            Cancelar1
+            Cancelar
           </button>
           <button
             type="submit"

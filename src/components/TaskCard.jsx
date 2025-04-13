@@ -50,7 +50,10 @@ export const TaskCard = ({ task, onEdit, onDelete, onStatusChange }) => {
                 <div className="flex gap-2">
                     <button
                         onClick={() => onEdit(task)}
-                        className="text-primary hover:text-primary-dark"
+                        // className="text-primary hover:text-primary-dark"
+                        className={`text-primary hover:text-primary-dark ${
+                            task.status === 'completada' ? "cursor-not-allowed" : ""
+                          }`} 
                         disabled={task.status === 'completada'}
                     >
                         ✏️
